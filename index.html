@@ -647,6 +647,460 @@
         ::-webkit-scrollbar-thumb:hover {
             background: var(--primary-cyan);
         }
+
+        /* ====== PREMIUM ENHANCEMENTS ====== */
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Floating Particles */
+        .particle {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0;
+            animation: floatParticle linear infinite;
+        }
+
+        @keyframes floatParticle {
+            0% { opacity: 0; transform: translateY(100vh) scale(0); }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% { opacity: 0; transform: translateY(-10vh) scale(1); }
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 50px 20px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.04) 0%, rgba(0, 0, 0, 0.95) 50%, rgba(0, 212, 255, 0.02) 100%);
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(0, 212, 255, 0.12);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.04), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .stat-card:hover::before {
+            left: 100%;
+        }
+
+        .stat-card:hover {
+            border-color: rgba(0, 212, 255, 0.35);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.08);
+        }
+
+        .stat-icon {
+            font-size: 2.2rem;
+            color: var(--primary-cyan);
+            margin-bottom: 12px;
+            filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.3));
+        }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-cyan), #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            margin-top: 8px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+
+        /* Countdown Section */
+        .countdown-section {
+            padding: 40px 20px;
+            text-align: center;
+            background: rgba(0, 212, 255, 0.02);
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .countdown-label {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+
+        .countdown-event-name {
+            font-size: 1.3rem;
+            color: var(--primary-cyan);
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .countdown-box {
+            background: rgba(0, 212, 255, 0.06);
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            border-radius: 16px;
+            padding: 18px 22px;
+            min-width: 90px;
+            backdrop-filter: blur(10px);
+        }
+
+        .countdown-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-white);
+            line-height: 1;
+        }
+
+        .countdown-unit {
+            font-size: 0.7rem;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 6px;
+        }
+
+        /* Kolkata Spotlight Section */
+        .kolkata-spotlight {
+            margin-bottom: 60px;
+        }
+
+        .spotlight-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .spotlight-card {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.06) 0%, rgba(255, 165, 0, 0.02) 100%);
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .spotlight-card:nth-child(1) { animation-delay: 0.1s; }
+        .spotlight-card:nth-child(2) { animation-delay: 0.2s; }
+        .spotlight-card:nth-child(3) { animation-delay: 0.3s; }
+        .spotlight-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .spotlight-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
+        }
+
+        .spotlight-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 40%, rgba(255, 215, 0, 0.04) 50%, transparent 60%);
+            animation: shimmer 4s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%); }
+            100% { transform: translateX(100%) translateY(100%); }
+        }
+
+        .spotlight-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 215, 0, 0.4);
+            box-shadow: 0 20px 50px rgba(255, 215, 0, 0.12);
+        }
+
+        .spotlight-emoji {
+            font-size: 2.8rem;
+            margin-bottom: 12px;
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+
+        .spotlight-month {
+            font-size: 0.75rem;
+            color: #FFD700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .spotlight-name {
+            font-size: 1.05rem;
+            color: var(--text-white);
+            font-weight: 600;
+            line-height: 1.4;
+            position: relative;
+            z-index: 1;
+        }
+
+        .spotlight-location {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Month Navigation */
+        .month-nav {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .month-nav-btn {
+            padding: 8px 16px;
+            border-radius: 25px;
+            border: 1px solid var(--card-border);
+            background: transparent;
+            color: var(--text-gray);
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .month-nav-btn:hover {
+            background: var(--gradient-cyan);
+            color: var(--bg-dark);
+            border-color: var(--primary-cyan);
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.2);
+        }
+
+        .month-nav-btn.gold:hover {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            border-color: #FFD700;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+        }
+
+        /* Event Legend */
+        .event-legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .legend-dot.cyan {
+            background: var(--primary-cyan);
+            box-shadow: 0 0 8px rgba(0, 212, 255, 0.4);
+        }
+
+        .legend-dot.gold {
+            background: #FFD700;
+            box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Section Title Decorated */
+        .section-title-decorated {
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .section-title-decorated h2 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--text-white);
+            display: inline-block;
+        }
+
+        .section-title-decorated h2 span {
+            color: var(--primary-cyan);
+            text-shadow: 0 0 20px var(--primary-cyan-glow);
+        }
+
+        .section-title-decorated h2.gold-title span {
+            color: #FFD700;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 35px;
+            font-weight: 300;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient-cyan);
+            color: var(--bg-dark);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Enhanced Responsive for new sections */
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .spotlight-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .countdown-timer {
+                gap: 10px;
+            }
+
+            .countdown-box {
+                min-width: 70px;
+                padding: 12px;
+            }
+
+            .countdown-value {
+                font-size: 1.8rem;
+            }
+
+            .month-nav {
+                gap: 5px;
+            }
+
+            .month-nav-btn {
+                padding: 6px 12px;
+                font-size: 0.7rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .spotlight-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Kolkata Special Events */
+        .kolkata-event {
+            border-left: 3px solid #FFD700;
+            background: rgba(255, 215, 0, 0.05) !important;
+        }
+
+        .kolkata-event:hover {
+            background: rgba(255, 215, 0, 0.1) !important;
+            border-color: rgba(255, 215, 0, 0.5);
+        }
+
+        .kolkata-event .event-date {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+        }
+
+        .kolkata-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: #FFD700;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
@@ -673,6 +1127,56 @@
         <div class="schedule-badges">
             <div class="schedule-badge"><i class="fas fa-clock"></i> 7:00 PM IST</div>
             <div class="schedule-badge secondary"><i class="fas fa-users"></i> Hybrid Format</div>
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
+                <div class="stat-number" data-target="24">0</div>
+                <div class="stat-label">Sessions</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-star"></i></div>
+                <div class="stat-number" data-target="4">0</div>
+                <div class="stat-label">Major Events</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-microphone-alt"></i></div>
+                <div class="stat-number" data-target="7">0</div>
+                <div class="stat-label">Expert Topics</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-map-marked-alt"></i></div>
+                <div class="stat-number" data-target="11">0</div>
+                <div class="stat-label">Months of Learning</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Countdown Section -->
+    <div class="countdown-section">
+        <div class="countdown-label">Next Event</div>
+        <div class="countdown-event-name" id="next-event-name">Loading...</div>
+        <div class="countdown-timer" id="countdown-timer">
+            <div class="countdown-box">
+                <div class="countdown-value" id="cd-days">--</div>
+                <div class="countdown-unit">Days</div>
+            </div>
+            <div class="countdown-box">
+                <div class="countdown-value" id="cd-hours">--</div>
+                <div class="countdown-unit">Hours</div>
+            </div>
+            <div class="countdown-box">
+                <div class="countdown-value" id="cd-mins">--</div>
+                <div class="countdown-unit">Minutes</div>
+            </div>
+            <div class="countdown-box">
+                <div class="countdown-value" id="cd-secs">--</div>
+                <div class="countdown-unit">Seconds</div>
+            </div>
         </div>
     </div>
 
@@ -757,9 +1261,63 @@
             </div>
         </section>
 
+        <!-- Kolkata Events Spotlight -->
+        <section class="kolkata-spotlight">
+            <div class="section-title-decorated">
+                <h2 class="gold-title"><span>Kolkata</span> Major Events</h2>
+            </div>
+            <p class="section-subtitle">Four signature gatherings bringing the Bengali business community together</p>
+            
+            <div class="spotlight-grid">
+                <div class="spotlight-card">
+                    <span class="spotlight-emoji">🎉</span>
+                    <div class="spotlight-month">April 2026</div>
+                    <div class="spotlight-name">Phoila Baishak Celebration</div>
+                    <div class="spotlight-location"><i class="fas fa-map-marker-alt"></i> Kolkata</div>
+                </div>
+                <div class="spotlight-card">
+                    <span class="spotlight-emoji">📊</span>
+                    <div class="spotlight-month">July 2026</div>
+                    <div class="spotlight-name">Annual Business Conclave</div>
+                    <div class="spotlight-location"><i class="fas fa-map-marker-alt"></i> Kolkata</div>
+                </div>
+                <div class="spotlight-card">
+                    <span class="spotlight-emoji">🤝</span>
+                    <div class="spotlight-month">September 2026</div>
+                    <div class="spotlight-name">Milon Mukhor Networking Event</div>
+                    <div class="spotlight-location"><i class="fas fa-map-marker-alt"></i> Kolkata</div>
+                </div>
+                <div class="spotlight-card">
+                    <span class="spotlight-emoji">🏖️</span>
+                    <div class="spotlight-month">December 2026</div>
+                    <div class="spotlight-name">Annual Picnic</div>
+                    <div class="spotlight-location"><i class="fas fa-map-marker-alt"></i> Kolkata</div>
+                </div>
+            </div>
+        </section>
+
         <!-- Calendar Section -->
         <section class="calendar-section">
             <h2 class="section-title"><span>2026</span> Monthly Schedule</h2>
+
+            <div class="event-legend">
+                <span class="legend-item"><span class="legend-dot cyan"></span> Phygital Meet</span>
+                <span class="legend-item"><span class="legend-dot gold"></span> Kolkata Major Event</span>
+            </div>
+
+            <nav class="month-nav">
+                <a href="#feb" class="month-nav-btn">Feb</a>
+                <a href="#mar" class="month-nav-btn">Mar</a>
+                <a href="#apr" class="month-nav-btn gold">Apr</a>
+                <a href="#may" class="month-nav-btn">May</a>
+                <a href="#jun" class="month-nav-btn">Jun</a>
+                <a href="#jul" class="month-nav-btn gold">Jul</a>
+                <a href="#aug" class="month-nav-btn">Aug</a>
+                <a href="#sep" class="month-nav-btn gold">Sep</a>
+                <a href="#oct" class="month-nav-btn">Oct</a>
+                <a href="#nov" class="month-nav-btn">Nov</a>
+                <a href="#dec" class="month-nav-btn gold">Dec</a>
+            </nav>
             
             <div class="calendar-grid">
                 <!-- February 2026 -->
@@ -771,8 +1329,8 @@
                     <div class="month-body">
                         <div class="event-item">
                             <div class="event-date">
-                                <div class="day">10</div>
-                                <div class="weekday">Tue</div>
+                                <div class="day">23</div>
+                                <div class="weekday">Mon</div>
                             </div>
                             <div class="event-details">
                                 <h4>Digital Personal Data Protection (DPDP)</h4>
@@ -853,6 +1411,17 @@
                                 <h4>Creative & Strategic Thinking Workshops</h4>
                                 <p class="speaker"><i class="fas fa-user"></i> Speaker: Will be decided</p>
                                 <span class="event-time"><i class="fas fa-clock"></i> 7:00 PM</span>
+                            </div>
+                        </div>
+                        <div class="event-item kolkata-event">
+                            <div class="event-date">
+                                <div class="day">15</div>
+                                <div class="weekday">Wed</div>
+                            </div>
+                            <div class="event-details">
+                                <h4>🎉 Phoila Baishak Celebration</h4>
+                                <p class="kolkata-badge"><i class="fas fa-map-marker-alt"></i> Kolkata | Major Event</p>
+                                <span class="event-time"><i class="fas fa-clock"></i> TBD</span>
                             </div>
                         </div>
                     </div>
@@ -951,6 +1520,17 @@
                                 <span class="event-time"><i class="fas fa-clock"></i> 7:00 PM</span>
                             </div>
                         </div>
+                        <div class="event-item kolkata-event">
+                            <div class="event-date">
+                                <div class="day">18</div>
+                                <div class="weekday">Sat</div>
+                            </div>
+                            <div class="event-details">
+                                <h4>📊 Annual Business Conclave</h4>
+                                <p class="kolkata-badge"><i class="fas fa-map-marker-alt"></i> Kolkata | Major Event</p>
+                                <span class="event-time"><i class="fas fa-clock"></i> TBD</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -1013,6 +1593,17 @@
                                 <h4>Navigating Funding: PE, VC & Alternative Finance for Growth</h4>
                                 <p class="speaker"><i class="fas fa-user"></i> Speaker: Will be decided</p>
                                 <span class="event-time"><i class="fas fa-clock"></i> 7:00 PM</span>
+                            </div>
+                        </div>
+                        <div class="event-item kolkata-event">
+                            <div class="event-date">
+                                <div class="day">19</div>
+                                <div class="weekday">Sat</div>
+                            </div>
+                            <div class="event-details">
+                                <h4>🤝 Milon Mukhor Networking Event</h4>
+                                <p class="kolkata-badge"><i class="fas fa-map-marker-alt"></i> Kolkata | Major Event</p>
+                                <span class="event-time"><i class="fas fa-clock"></i> TBD</span>
                             </div>
                         </div>
                     </div>
@@ -1111,6 +1702,17 @@
                                 <span class="event-time"><i class="fas fa-clock"></i> 7:00 PM</span>
                             </div>
                         </div>
+                        <div class="event-item kolkata-event">
+                            <div class="event-date">
+                                <div class="day">19</div>
+                                <div class="weekday">Sat</div>
+                            </div>
+                            <div class="event-details">
+                                <h4>🏖️ Annual Picnic</h4>
+                                <p class="kolkata-badge"><i class="fas fa-map-marker-alt"></i> Kolkata | Major Event</p>
+                                <span class="event-time"><i class="fas fa-clock"></i> TBD</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1125,7 +1727,12 @@
             </div>
             <p class="footer-tagline">Bengalis in Business</p>
         </div>
-        <p><i class="fas fa-calendar-check"></i> Join us every 2nd & 4th Tuesday at 7:00 PM IST</p>
+        <p style="max-width: 600px; margin: 0 auto 25px; line-height: 1.8; color: #9CA3AF; font-size: 0.9rem;">
+            Empowering Bengali entrepreneurs and business professionals through knowledge sharing, 
+            networking, and collaborative growth. Join our thriving community of changemakers.
+        </p>
+        <p><i class="fas fa-calendar-check" style="color: #00D4FF;"></i> Join us every 2nd & 4th Tuesday at 7:00 PM IST</p>
+        <p style="margin-top: 5px;"><i class="fas fa-map-marker-alt" style="color: #FFD700;"></i> 4 Signature Kolkata Events throughout the year</p>
         
         <div class="social-links">
             <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
@@ -1141,9 +1748,91 @@
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" title="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script>
-        // Intersection Observer for scroll animations
+        // ====== Animated Number Counter ======
+        function animateCounters() {
+            document.querySelectorAll('.stat-number[data-target]').forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000;
+                const increment = target / (duration / 16);
+                let current = 0;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = target + '+';
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current);
+                    }
+                }, 16);
+            });
+        }
+
+        // ====== Countdown Timer ======
+        function updateCountdown() {
+            const events = [
+                { date: new Date('2026-02-23T19:00:00+05:30'), name: 'Digital Personal Data Protection (DPDP)' },
+                { date: new Date('2026-02-24T19:00:00+05:30'), name: 'MSME Growth & Development' },
+                { date: new Date('2026-03-10T19:00:00+05:30'), name: 'Tech-Based Customer Experience Management' },
+                { date: new Date('2026-03-24T19:00:00+05:30'), name: 'Increasing Margins through Agentic AI' },
+                { date: new Date('2026-04-14T19:00:00+05:30'), name: 'Emotional Intelligence & DEI' },
+                { date: new Date('2026-04-15T10:00:00+05:30'), name: '\ud83c\udf89 Phoila Baishak Celebration \u2014 Kolkata' },
+                { date: new Date('2026-04-28T19:00:00+05:30'), name: 'Creative & Strategic Thinking Workshops' },
+                { date: new Date('2026-05-12T19:00:00+05:30'), name: 'How to Influence & Work with Gen-Z' },
+                { date: new Date('2026-05-26T19:00:00+05:30'), name: 'AI Governance & Responsible AI' },
+                { date: new Date('2026-06-09T19:00:00+05:30'), name: 'Export Readiness for MSMEs' },
+                { date: new Date('2026-06-23T19:00:00+05:30'), name: 'Hyper-Personalization with AI' },
+                { date: new Date('2026-07-14T19:00:00+05:30'), name: 'AI Strategy Roadmap' },
+                { date: new Date('2026-07-18T10:00:00+05:30'), name: '\ud83d\udcca Annual Business Conclave \u2014 Kolkata' },
+                { date: new Date('2026-07-28T19:00:00+05:30'), name: 'Leadership Resilience' },
+                { date: new Date('2026-08-11T19:00:00+05:30'), name: 'Building Innovation Culture' },
+                { date: new Date('2026-08-25T19:00:00+05:30'), name: 'Future of Work' },
+                { date: new Date('2026-09-08T19:00:00+05:30'), name: 'Succession Planning' },
+                { date: new Date('2026-09-19T10:00:00+05:30'), name: '\ud83e\udd1d Milon Mukhor Networking \u2014 Kolkata' },
+                { date: new Date('2026-09-22T19:00:00+05:30'), name: 'Navigating Funding' },
+                { date: new Date('2026-10-13T19:00:00+05:30'), name: 'Sustainability & ESG' },
+                { date: new Date('2026-10-27T19:00:00+05:30'), name: 'Digital Transformation Lessons' },
+                { date: new Date('2026-11-10T19:00:00+05:30'), name: 'M&A Strategies' },
+                { date: new Date('2026-11-24T19:00:00+05:30'), name: 'Personal Branding' },
+                { date: new Date('2026-12-08T19:00:00+05:30'), name: 'Wealth Creation & Legacy Planning' },
+                { date: new Date('2026-12-19T10:00:00+05:30'), name: '\ud83c\udfd6\ufe0f Annual Picnic \u2014 Kolkata' },
+                { date: new Date('2026-12-22T19:00:00+05:30'), name: '2026 Reflections & 2027 Trends' }
+            ];
+
+            const now = new Date();
+            let nextEvent = null;
+            for (const event of events) {
+                if (event.date > now) {
+                    nextEvent = event;
+                    break;
+                }
+            }
+
+            if (!nextEvent) {
+                document.getElementById('next-event-name').textContent = 'All 2026 events completed!';
+                document.getElementById('cd-days').textContent = '00';
+                document.getElementById('cd-hours').textContent = '00';
+                document.getElementById('cd-mins').textContent = '00';
+                document.getElementById('cd-secs').textContent = '00';
+                return;
+            }
+
+            document.getElementById('next-event-name').textContent = nextEvent.name;
+            const diff = nextEvent.date - now;
+            document.getElementById('cd-days').textContent = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
+            document.getElementById('cd-hours').textContent = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+            document.getElementById('cd-mins').textContent = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+            document.getElementById('cd-secs').textContent = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0');
+        }
+
+        // ====== Main Initialization ======
         document.addEventListener('DOMContentLoaded', function() {
+            // Scroll animations for cards
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -1155,24 +1844,89 @@
                 rootMargin: '0px 0px -50px 0px'
             });
 
-            document.querySelectorAll('.topic-card, .month-card').forEach(card => {
+            document.querySelectorAll('.topic-card, .month-card, .spotlight-card').forEach(card => {
                 card.style.animationPlayState = 'paused';
                 observer.observe(card);
             });
+
+            // Stats counter animation on scroll
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        statsObserver.disconnect();
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            const statsSection = document.querySelector('.stats-section');
+            if (statsSection) statsObserver.observe(statsSection);
+
+            // Start countdown
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+
+            // Back to top visibility
+            const backToTop = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 500) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            // Generate floating particles
+            const bgContainer = document.querySelector('.bg-animation');
+            if (bgContainer) {
+                for (let i = 0; i < 20; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    const size = Math.random() * 4 + 2;
+                    particle.style.width = size + 'px';
+                    particle.style.height = size + 'px';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.background = Math.random() > 0.5 
+                        ? 'rgba(0, 212, 255, 0.5)' 
+                        : 'rgba(255, 215, 0, 0.35)';
+                    particle.style.animationDuration = (Math.random() * 15 + 10) + 's';
+                    particle.style.animationDelay = (Math.random() * 10) + 's';
+                    bgContainer.appendChild(particle);
+                }
+            }
         });
 
-        // Smooth scroll for anchor links
+        // ====== Month Navigation ======
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                const targetId = this.getAttribute('href').substring(1);
+                const monthMap = {
+                    feb: 'February', mar: 'March', apr: 'April', may: 'May',
+                    jun: 'June', jul: 'July', aug: 'August', sep: 'September',
+                    oct: 'October', nov: 'November', dec: 'December'
+                };
+                const monthName = monthMap[targetId];
+                let target = null;
+                if (monthName) {
+                    document.querySelectorAll('.month-header h3').forEach(h3 => {
+                        if (h3.textContent.includes(monthName)) {
+                            target = h3.closest('.month-card');
+                        }
                     });
                 }
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    target.style.transition = 'box-shadow 0.3s ease';
+                    target.style.boxShadow = '0 0 30px rgba(0, 212, 255, 0.35)';
+                    setTimeout(() => { target.style.boxShadow = ''; }, 2000);
+                }
             });
+        });
+
+        // ====== Back to Top ======
+        document.getElementById('back-to-top').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>
